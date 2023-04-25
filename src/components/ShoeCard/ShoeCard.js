@@ -61,17 +61,12 @@ const Wrapper = styled.article`
 `;
 
 const ImageWrapper = styled.div`
-  max-height: 312px;
   position: relative;
-  display: flex;
-  align-items: center;
-  background-color: var(--gray-100);
-  border-radius: 16px 16px 4px 4px;
   `;
 
 const Image = styled.img`
-  height: auto;
   width: 100%;
+  border-radius: 16px 16px 4px 4px;
   `;
 
 const ImageLabel = styled.span`

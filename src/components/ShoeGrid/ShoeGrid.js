@@ -16,10 +16,10 @@ const ShoeGrid = () => {
 
 const Wrapper = styled.div`
 display: flex;
-gap: 36px;
 flex-wrap: wrap;
+gap: var(--padding-inline);
 & > * {
-  flex: 1 1 300px;
+  flex: 1 1 275px;
 }
 `;
 
