@@ -41,5 +41,7 @@ const CrumbLink = styled.a`
 const Wrapper = styled.nav`
   display: flex;
   font-size: 0.875rem;
+  padding-top: 14px;
+  align-items: baseline;
 `;
 export default Breadcrumbs;
