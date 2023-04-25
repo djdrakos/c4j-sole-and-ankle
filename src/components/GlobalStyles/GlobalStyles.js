@@ -64,6 +64,15 @@ table {
     float above the app.
   */
   isolation: isolate;
+  --primary: #C5295D;
+  --secondary: #6868D9;
+  --gray-900: #313235;
+  --gray-700: #60666C;
+  --gray-500: #949A9C;
+  --gray-300: #C9CECF;
+  --gray-100: #F2F3F3;
+  --white: #FFFFFF;
+  --padding-inline: 32px;
 }
 
 html, body, #root {
