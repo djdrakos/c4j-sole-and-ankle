@@ -36,16 +36,17 @@ const ShoeCard = ({
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
-          {variant !== 'default' && <ImageLabel variant={variant}>{variant === 'new-release' ? 'Just Released!' : 'Sale'}</ImageLabel>}
+          {variant === 'on-sale' ? <SaleFlag>Sale</SaleFlag> : undefined}
+          {variant === 'new-release' ? <NewFlag>Just Released!</NewFlag> : undefined}
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price className={variant}>{formatPrice(price)}</Price>
+          <Price className={variant === 'on-sale' ? variant : undefined}>{formatPrice(price)}</Price>
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
-          {salePrice ? <SalePrice>{formatPrice(salePrice)}</SalePrice> : ""}
+          {variant === 'on-sale' ? <SalePrice>{formatPrice(salePrice)}</SalePrice> : undefined}
         </Row>
       </Wrapper>
     </Link>
@@ -69,26 +70,29 @@ const Image = styled.img`
   border-radius: 16px 16px 4px 4px;
   `;
 
-const ImageLabel = styled.span`
+const Flag = styled.span`
   position: absolute;
   top: 12px;
   right: -4px;
   border-radius: 2px;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 14px;
-  line-height: 16px;
-  color: var(--white);
-  padding: 8px 10px;
-  background: ${props => props.variant === 'new-release' ? 'var(--secondary)' : 'var(--primary)'};
-  content: ${props => props.variant === 'new-release' ? 'Just Released!' : 'Sale'};
+  color: ${COLORS.white};
+  font-weight: ${WEIGHTS.bold};
+  font-size: ${14/16}rem;
+  line-height: 2rem;
+  padding: 0px 10px;
+`
+
+const SaleFlag = styled(Flag)`
+  background-color: ${COLORS.primary}
+`
+
+const NewFlag = styled(Flag)`
+  background-color: ${COLORS.secondary}
 `
 
 const Row = styled.div`
   display: flex;
-  &:first-child {
-    margin-right: auto;
-  }
+  justify-content: space-between;
   font-size: 1rem;
 `;
 
@@ -98,11 +102,9 @@ const Name = styled.h3`
 `;
 
 const Price = styled.span`
-  margin-left: auto;
-
   &.on-sale {
     text-decoration: line-through;
-    color: var(--gray-700);
+    color: ${COLORS.gray[700]};
   }
 `;
 
