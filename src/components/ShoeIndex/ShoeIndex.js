@@ -5,9 +5,9 @@ import { WEIGHTS } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
-import Spacer from '../Spacer';
-import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
+import ShoeSidebar from '../ShoeSidebar';
+import Spacer from '../Spacer';
 
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
@@ -35,20 +35,34 @@ const ShoeIndex = ({ sortId, setSortId }) => {
             Shoes
           </Breadcrumbs.Crumb>
         </Breadcrumbs>
-        <Spacer size={42} />
+        <Spacer size={36} />
         <ShoeSidebar />
       </LeftColumn>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  gap: var(--padding-inline);
+`;
 
-const LeftColumn = styled.div``;
+const LeftColumn = styled.div`
+  flex-basis: 248px;
+`;
 
-const MainColumn = styled.div``;
+const MainColumn = styled.div`
+  flex: 1;
+`;
 
-const Header = styled.header``;
+const Header = styled.header`
+  display: flex;
+  gap: 24px;
+  align-items: baseline;
+  justify-content: space-between;
+`;
 
 const Title = styled.h2`
   font-size: 1.5rem;
